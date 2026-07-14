@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Task {
   final String id;
   final String title;
@@ -54,5 +56,9 @@ class Task {
       isCompleted: isCompleted ?? this.isCompleted,
       createdAt: createdAt ?? this.createdAt
     );
+  }
+
+  String get formattedDueDate {
+    return DateFormat('MMM dd yyyy').format(dueDate);
   }
 }
