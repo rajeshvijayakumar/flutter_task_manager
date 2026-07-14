@@ -3,6 +3,8 @@ import 'dart:developer';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_task_manager/core/models/user.dart';
+import 'package:flutter_task_manager/core/providers/profile_provider.dart';
+import 'package:flutter_task_manager/core/providers/task_provider.dart';
 import 'package:flutter_task_manager/features/auth/data/auth_repository.dart';
 
 
@@ -50,6 +52,12 @@ class AuthController extends AsyncNotifier<User?> {
         password: password,
       );
 
+      // 2. DATA ISOLATION: Wipe the previous user's data from the phone's RAM.
+      // This ensures that if "Josh" logs in after "Souvik",
+      // Josh doesn't see Souvik's tasks or profile for even a split second.
+      ref.invalidate(tasksProvider);
+      ref.invalidate(profileProvider);
+      
       // 3. Set the global state to the logged-in user.
       // This triggers the 'App' widget to automatically navigate to the Home screen.
       state = AsyncData(user);
