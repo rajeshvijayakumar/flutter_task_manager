@@ -29,7 +29,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   String? _errorMessage;
   bool _isLoading = false;
 
-
   @override
   void dispose() {
     // Memory Management: Always dispose controllers when the widget is destroyed
@@ -50,13 +49,11 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       _errorMessage = null;
     });
 
-
     try{
       // 3. Trigger Controller: Call the login method in the AuthController
       await ref
       .read(authProvider.notifier)
       .login(_emailController.text.trim(), _passwordController.text.trim());
-
 
        // 4. Navigation: If login is successful, move the user to the Home/Task page.
       // pushNamedAndRemoveUntil ensures the user cannot press "back" to return to login.
@@ -133,6 +130,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
                 // Login Button: Disables itself while loading to prevent double-clicks
                 CustomButton(
+                  backgroundColor: Colors.blue,
                   onPressed: _isLoading ? null : _login,
                   child: _isLoading
                       ?  SizedBox(
@@ -155,7 +153,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       ),
     );
   }
-
 
   /// UI Helper: Builds a stylized red card to show error messages clearly.
   Widget _buildErrorCard() {

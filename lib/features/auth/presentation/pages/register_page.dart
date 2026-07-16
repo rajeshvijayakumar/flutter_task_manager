@@ -4,7 +4,6 @@ import 'package:flutter_task_manager/core/models/user.dart';
 import 'package:flutter_task_manager/core/providers/auth_provider.dart';
 import 'package:flutter_task_manager/shared/widgets/custom_button.dart';
 import 'package:flutter_task_manager/shared/widgets/custom_text_field.dart';
-import 'package:flutter_task_manager/shared/widgets/loading_indicator.dart';
 
 class RegisterPage extends ConsumerStatefulWidget {
   const RegisterPage({super.key});
@@ -82,6 +81,11 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           _isLoading = false;
         });
       }
+    } finally {
+      // 6. Cleanup: Ensure the loading spinner stops regardless of success or failure
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 
@@ -108,7 +112,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           child: Form(
             key: _formKey, // Connects the GlobalKey to the Form
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Icon(
                   Icons.person_add_outlined,
@@ -175,6 +179,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
             
                 // Register Button: Switches to a spinner during the async operation
                 CustomButton(
+                  backgroundColor: Colors.blue,
                   onPressed: _isLoading ? null : _register,
                   child: _isLoading
                       ? const SizedBox(
