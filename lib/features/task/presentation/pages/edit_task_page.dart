@@ -132,7 +132,6 @@ class _EditTaskPageState extends ConsumerState<EditTaskPage> {
                 children: [
                   Expanded(
                     child: CustomButton(
-                      backgroundColor: Colors.blue,
                       onPressed: _updateTask,
                       child: const Text('Update Task'),
                     ),

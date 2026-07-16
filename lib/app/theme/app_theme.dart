@@ -26,10 +26,10 @@ class AppTheme {
       primary: Colors.blueGrey,
       secondary: Colors.green
     ),
-
-    appBarTheme: AppBarTheme(
+     appBarTheme: AppBarTheme(
       backgroundColor: Colors.blueGrey,
-      foregroundColor: Colors.white,
+      foregroundColor: Colors.green,
     )
+    
   );
 }

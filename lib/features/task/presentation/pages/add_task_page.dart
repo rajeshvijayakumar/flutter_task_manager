@@ -111,7 +111,10 @@ class _AddTaskPageState extends ConsumerState<AddTaskPage> {
               const SizedBox(height: 40),
 
               // Action button to save the task
-              CustomButton(onPressed: _addTask, child: const Text('Add Task')),
+              CustomButton(
+                      backgroundColor: Colors.blue,
+                      onPressed: _addTask,
+                       child: const Text('Add Task')),
             ],
           ),
         ),

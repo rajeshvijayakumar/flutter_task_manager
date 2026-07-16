@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_task_manager/core/providers/auth_provider.dart';
 import 'package:flutter_task_manager/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter_task_manager/features/auth/presentation/pages/onboarding_page.dart';
-import 'package:flutter_task_manager/features/auth/presentation/pages/register_page.dart';
+import 'package:flutter_task_manager/features/task/presentation/pages/task_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -38,8 +38,7 @@ class App extends ConsumerWidget {
               return const LoginPage();
             }
 
-            //TODO: Need to navigate to Task Page
-            return const RegisterPage();
+            return const TaskPage();
 
           }
           );
