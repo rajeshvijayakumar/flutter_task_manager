@@ -4,7 +4,7 @@ import 'package:flutter_task_manager/core/models/task.dart';
 import 'package:flutter_task_manager/core/providers/auth_provider.dart';
 import 'package:flutter_task_manager/core/providers/task_provider.dart';
 import 'package:flutter_task_manager/core/providers/theme_provider.dart';
-import 'package:flutter_task_manager/features/auth/presentation/pages/onboarding_page.dart';
+import 'package:flutter_task_manager/features/profile/presentation/pages/profile_page.dart';
 import 'package:flutter_task_manager/features/task/data/presentation/pages/edit_task_page.dart';
 import 'package:flutter_task_manager/features/task/presentation/pages/add_task_page.dart';
 import 'package:flutter_task_manager/features/task/presentation/widgets/task_item.dart';
@@ -58,7 +58,7 @@ class _TaskPageState extends ConsumerState<TaskPage> {
           ),
         ],
       ),
-      body: _selectedIndex == 0 ? _buildTasksList(tasksState) : OnboardingPage(),
+      body: _selectedIndex == 0 ? _buildTasksList(tasksState) : ProfilePage(),
 
       floatingActionButton: _selectedIndex == 0
           ? FloatingActionButton(
